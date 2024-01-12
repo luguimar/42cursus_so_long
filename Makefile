@@ -6,7 +6,7 @@
 #    By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 22:33:22 by luguimar          #+#    #+#              #
-#    Updated: 2024/01/10 22:59:11 by luguimar         ###   ########.fr        #
+#    Updated: 2024/01/11 00:17:26 by luguimar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,11 +43,12 @@ all: ${NAME}
 
 clean:
 		${MAKE} ${LIBFT_PATH} clean
-		${RM} ${OBJS} ${MLX_PATH}
+		${MAKE} ${MLX_PATH} clean
+		${RM} ${OBJS}
 
 fclean: clean
 		${MAKE} ${LIBFT_PATH} fclean
-		${RM} ${NAME} ${MLX_PATH}
+		${RM} ${NAME}
 
 re: fclean all
 
