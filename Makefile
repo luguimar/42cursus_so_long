@@ -6,13 +6,13 @@
 #    By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 22:33:22 by luguimar          #+#    #+#              #
-#    Updated: 2024/01/11 00:17:26 by luguimar         ###   ########.fr        #
+#    Updated: 2024/01/17 03:43:43 by luguimar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = main.c
+SRC = src/main.c
 
 OBJS = ${SRC:.c=.o}
 
@@ -24,14 +24,13 @@ MAKE = make -C
 LIBFT_PATH = lib/libft
 MLX_PATH = lib/mlx
 LIBFT = ${LIBFT_PATH}/libft.a
-MLX = ${MLX_PATH}/libmlx.a
+MLX = -L ${MLX_PATH} -lmlx -Ilmlx -lXext -lX11 -lm
 
 .c.o:
 		${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
 
 $(NAME): ${OBJS} ${LIBFT} $(MLX)
-		${CC} ${OBJS} ${LIBFT} -o ${NAME}
-		${CC} ${OBJS} ${MLX} -o ${NAME}
+		${CC} ${OBJS} ${LIBFT} ${MLX} -o ${NAME}
 
 $(LIBFT):
 		${MAKE} ${LIBFT_PATH}
