@@ -6,13 +6,13 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 00:18:37 by luguimar          #+#    #+#             */
-/*   Updated: 2024/01/24 21:15:48 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/01 05:24:58 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static int	ft_check_extension(char *str, char *ext)
+static int	check_extension(char *str, char *ext)
 {
 	int	i;
 	int	j;
@@ -35,7 +35,7 @@ static int	ft_check_extension(char *str, char *ext)
 	return (1);
 }
 
-int	ft_error(char *str, int ret)
+int	error_msg(char *str, int ret)
 {
 	ft_putstr_fd(str, 2);
 	return (ret);
@@ -46,10 +46,10 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		return (ft_error("Error\nInvalid number of arguments\n", 0));
-	if (!ft_check_extension(argv[1], ".ber"))
-		return (ft_error("Error\nInvalid file extension\n", 0));
-	if (!ft_check_map(argv[1]))
-		return (ft_error("Error\nInvalid map\n", 0));
+		return (error_msg("Error: Invalid number of arguments\n", 0));
+	if (!check_extension(argv[1], ".ber"))
+		return (error_msg("Error: Invalid file extension\n", 0));
+	if (!check_map(argv[1], &game))
+		return (error_msg("Error: Invalid map\n", 0));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:28:32 by luguimar          #+#    #+#             */
-/*   Updated: 2024/01/24 21:15:53 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/01 05:14:06 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ typedef enum e_key
 typedef struct s_player
 {
 	void	*img;
-	int		height;
-	int		width;
 	int		instant_x;
 	int		instant_y;
 	int		previous_x;
 	int		previous_y;
+	int		height;
+	int		width;
 	int		direction;
 	int		moves;
 }	t_player;
@@ -76,86 +76,26 @@ typedef struct s_map
 	int		rows;
 	int		cols;
 	int		collectibles;
+	int		exit_x;
+	int		exit_y;
+	int		player_nr;
+	int		exit_nr;
 }	t_map;
-
-typedef struct s_point
-{
-	int	x;
-	int	y;
-}	t_point;
 
 typedef struct s_game
 {
 	t_graphics	graphics;
-	int			map_width;
-	int			map_height;
-	int			rows;
-	int			cols;
-	int			collectibles;
+	t_player	player;
 	int			moves;
 	int			winnign;
-	int			lose;
-	t_player	player;
-	char		**map;
+	t_map		map;
 }	t_game;
 
-/*
-typedef struct s_point
-{
-	int	x;
-	int	y;
-}					t_point;
-
-typedef struct s_graphics
-{
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*addr;
-}					t_graphics;
-
-typedef struct s_player
-{
-	void	*img;
-	int		height;
-	int		width;
-	int		instant_x;
-	int		instant_y;
-	int		previous_x;
-	int		previous_y;
-	int		direction;
-	int		moves;
-}					t_player;
-
-typedef struct s_sprite
-{
-	void	*img;
-	int		height;
-	int		width;
-}					t_sprite;
-
-typedef struct s_map
-{
-	char	**map;
-	int		rows;
-	int		cols;
-	int		collectibles;
-}					t_map;
-
-typedef struct s_game
-{
-	t_graphics	*graphics;
-	t_player	*player;
-	t_sprite	*empty;
-	t_sprite	*rock;
-	t_sprite	*gold;
-	t_sprite	*exit;
-	t_map		*map;
-	int			win;
-	int			lose;
-}					t_game;
-*/
-
-int	ft_error(char *str, int ret);
+int		error_msg(char *str, int ret);
+int		path_checker(t_game *game);
+int		check_map(char *file, t_game *game);
+int		error_free_map(char **map, int ret, char *msg);
+void	get_player_position(t_game *game);
+void	get_exit_position(t_game *game);
 
 #endif

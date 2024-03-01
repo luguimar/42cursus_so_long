@@ -72,7 +72,7 @@ ROCK	include/so_long.h	21;"	d
 S	include/so_long.h	/^	S = 115,$/;"	e	enum:e_key
 SIZE	include/so_long.h	19;"	d
 SO_LONG_H	include/so_long.h	14;"	d
-SRC	Makefile	/^SRC = src\/main.c$/;"	m
+SRC	Makefile	/^SRC = src\/main.c src\/map_ckeck.c src\/flood_fill.c src\/flood_fill_extra.c$/;"	m
 SRC	lib/libft/Makefile	/^SRC = ${PART1} ${PART2} ${BONUS} ${EXTRA}$/;"	m
 SRC	lib/mlx/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \\$/;"	m
 SRC	lib/mlx/test/Makefile.mk	/^SRC = main.c$/;"	m
@@ -94,17 +94,20 @@ bpp1	lib/mlx/test/main.c	/^int	bpp1;$/;"	v
 bpp2	lib/mlx/test/main.c	/^int	bpp2;$/;"	v
 bpp3	lib/mlx/test/main.c	/^int	bpp3;$/;"	v
 bpp4	lib/mlx/test/main.c	/^int	bpp4;$/;"	v
+check_extension	src/main.c	/^static int	check_extension(char *str, char *ext)$/;"	f	file:
+check_map	src/map_ckeck.c	/^int	check_map(char *file, t_game *game)$/;"	f
+check_map_elements	src/map_ckeck.c	/^static int	check_map_elements(t_game *game, int i, int j)$/;"	f	file:
+check_map_extra	src/map_ckeck.c	/^static int	check_map_extra(char *file, int fd, char *line, t_game *game)$/;"	f	file:
+check_rectangle	src/map_ckeck.c	/^static int	check_rectangle(int fd, char *line, t_game *game)$/;"	f	file:
 checktype	lib/libft/ft_printf.c	/^int	checktype(int ch, va_list args)$/;"	f
 clean	lib/mlx/configure	/^clean(){$/;"	f
 clean_stash	lib/libft/get_next_line.c	/^static char	*clean_stash(char *stash)$/;"	f	file:
 cmap	lib/mlx/mlx_int.h	/^	Colormap	cmap;$/;"	m	struct:s_xvar
 col	lib/mlx/mlx_int.h	/^	int		col;$/;"	m	struct:s_xpm_col
-collectibles	include/so_long.h	/^	int			collectibles;$/;"	m	struct:s_game
 collectibles	include/so_long.h	/^	int		collectibles;$/;"	m	struct:s_map
 color	lib/mlx/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name
 color_map_1	lib/mlx/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f
 color_map_2	lib/mlx/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f
-cols	include/so_long.h	/^	int			cols;$/;"	m	struct:s_game
 cols	include/so_long.h	/^	int		cols;$/;"	m	struct:s_map
 content	lib/libft/libft.h	/^	void			*content;$/;"	m	struct:s_list
 data	lib/mlx/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img
@@ -124,10 +127,16 @@ endian1	lib/mlx/test/main.c	/^int	endian1;$/;"	v
 endian2	lib/mlx/test/main.c	/^int	endian2;$/;"	v
 endian3	lib/mlx/test/main.c	/^int	endian3;$/;"	v
 endian4	lib/mlx/test/main.c	/^int	endian4;$/;"	v
+error_free_map	src/flood_fill.c	/^int	error_free_map(char **map, int ret, char *msg)$/;"	f
+error_msg	src/main.c	/^int	error_msg(char *str, int ret)$/;"	f
+exit_nr	include/so_long.h	/^	int		exit_nr;$/;"	m	struct:s_map
+exit_x	include/so_long.h	/^	int		exit_x;$/;"	m	struct:s_map
+exit_y	include/so_long.h	/^	int		exit_y;$/;"	m	struct:s_map
 expose_hook	lib/mlx/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list
 expose_param	lib/mlx/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list
 expose_win1	lib/mlx/test/main.c	/^int	expose_win1(void *p)$/;"	f
 expose_win2	lib/mlx/test/main.c	/^int	expose_win2(void *p)$/;"	f
+flood_fill	src/flood_fill.c	/^static int	flood_fill(t_game *game, int x, int y, char **map)$/;"	f	file:
 format	lib/mlx/mlx_int.h	/^	int				format;$/;"	m	struct:s_img
 free_array_of_strings	lib/libft/free_array_of_strings.c	/^void	free_array_of_strings(char **str)$/;"	f
 ft_abs_value	lib/libft/ft_abs_value.c	/^int	ft_abs_value(int n)$/;"	f
@@ -135,8 +144,6 @@ ft_atoi	lib/libft/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f
 ft_atol	lib/libft/ft_atol.c	/^long long	ft_atol(const char *nptr)$/;"	f
 ft_bzero	lib/libft/ft_bzero.c	/^void	ft_bzero(void *b, size_t len)$/;"	f
 ft_calloc	lib/libft/ft_calloc.c	/^void	*ft_calloc(size_t number, size_t size)$/;"	f
-ft_check_extension	src/main.c	/^static int	ft_check_extension(char *str, char *ext)$/;"	f	file:
-ft_error	src/main.c	/^int	ft_error(char *str, int ret)$/;"	f
 ft_isalnum	lib/libft/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f
 ft_isalpha	lib/libft/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f
 ft_isascii	lib/libft/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f
@@ -188,8 +195,10 @@ ft_toupper	lib/libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f
 gc	lib/mlx/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list
 gc	lib/mlx/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img
 gere_mouse	lib/mlx/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f
+get_exit_position	src/flood_fill_extra.c	/^void	get_exit_position(t_game *game)$/;"	f
 get_line	lib/libft/get_next_line.c	/^static char	*get_line(char *stash)$/;"	f	file:
 get_next_line	lib/libft/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f
+get_player_position	src/flood_fill_extra.c	/^void	get_player_position(t_game *game)$/;"	f
 get_stash	lib/libft/get_next_line.c	/^static char	*get_stash(int fd, char *stash)$/;"	f	file:
 get_xlib_include_path	lib/mlx/configure	/^get_xlib_include_path(){$/;"	f
 graphics	include/so_long.h	/^	t_graphics	graphics;$/;"	m	struct:s_game
@@ -231,15 +240,14 @@ logging	lib/mlx/configure	/^logging(){$/;"	f
 logging	lib/mlx/test/run_tests.sh	/^logging(){$/;"	f
 loop_hook	lib/mlx/mlx_int.h	/^	int			(*loop_hook)();$/;"	m	struct:s_xvar
 loop_param	lib/mlx/mlx_int.h	/^	void		*loop_param;$/;"	m	struct:s_xvar
-lose	include/so_long.h	/^	int			lose;$/;"	m	struct:s_game
 main	lib/mlx/test/main.c	/^int	main()$/;"	f
 main	lib/mlx/test/new_win.c	/^int main()$/;"	f
 main	lib/mlx/test/run_tests.sh	/^main(){$/;"	f
 main	src/main.c	/^int	main(int argc, char **argv)$/;"	f
-map	include/so_long.h	/^	char		**map;$/;"	m	struct:s_game
 map	include/so_long.h	/^	char	**map;$/;"	m	struct:s_map
-map_height	include/so_long.h	/^	int			map_height;$/;"	m	struct:s_game
-map_width	include/so_long.h	/^	int			map_width;$/;"	m	struct:s_game
+map	include/so_long.h	/^	t_map		map;$/;"	m	struct:s_game
+map_duplicator	src/flood_fill.c	/^static int	map_duplicator(t_game *game, char **map)$/;"	f	file:
+map_filler	src/map_ckeck.c	/^static int	map_filler(char *file, t_game *game)$/;"	f	file:
 mask	lib/mlx/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list
 mlx	include/so_long.h	/^	void	*mlx;$/;"	m	struct:s_graphics
 mlx	lib/mlx/test/main.c	/^void	*mlx;$/;"	v
@@ -326,8 +334,10 @@ next	lib/libft/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struc
 next	lib/mlx/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list::s_win_list
 param	lib/mlx/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list
 parse_args	lib/mlx/configure	/^parse_args(){$/;"	f
+path_checker	src/flood_fill.c	/^int	path_checker(t_game *game)$/;"	f
 pix	lib/mlx/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img
 player	include/so_long.h	/^	t_player	player;$/;"	m	struct:s_game
+player_nr	include/so_long.h	/^	int		player_nr;$/;"	m	struct:s_map
 prev	lib/libft/libft.h	/^	struct s_list	*prev;$/;"	m	struct:s_list	typeref:struct:s_list::s_list
 previous_x	include/so_long.h	/^	int		previous_x;$/;"	m	struct:s_player
 previous_y	include/so_long.h	/^	int		previous_y;$/;"	m	struct:s_player
@@ -335,7 +345,6 @@ private_cmap	lib/mlx/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar
 pshm_format	lib/mlx/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar
 quote	lib/libft/quotes.c	/^char	quote(char *s, int index)$/;"	f
 root	lib/mlx/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar
-rows	include/so_long.h	/^	int			rows;$/;"	m	struct:s_game
 rows	include/so_long.h	/^	int		rows;$/;"	m	struct:s_map
 s_col_name	lib/mlx/mlx_int.h	/^struct	s_col_name$/;"	s
 s_event_list	lib/mlx/mlx_int.h	/^typedef struct	s_event_list$/;"	s
@@ -345,7 +354,6 @@ s_img	lib/mlx/mlx_int.h	/^typedef struct	s_img$/;"	s
 s_list	lib/libft/libft.h	/^typedef struct s_list$/;"	s
 s_map	include/so_long.h	/^typedef struct s_map$/;"	s
 s_player	include/so_long.h	/^typedef struct s_player$/;"	s
-s_point	include/so_long.h	/^typedef struct s_point$/;"	s
 s_sprite	include/so_long.h	/^typedef struct s_sprite$/;"	s
 s_win_list	lib/mlx/mlx_int.h	/^typedef struct	s_win_list$/;"	s
 s_xpm_col	lib/mlx/mlx_int.h	/^typedef	struct	s_xpm_col$/;"	s
@@ -375,7 +383,6 @@ t_key	include/so_long.h	/^}	t_key;$/;"	t	typeref:enum:e_key
 t_list	lib/libft/libft.h	/^}					t_list;$/;"	t	typeref:struct:s_list
 t_map	include/so_long.h	/^}	t_map;$/;"	t	typeref:struct:s_map
 t_player	include/so_long.h	/^}	t_player;$/;"	t	typeref:struct:s_player
-t_point	include/so_long.h	/^}	t_point;$/;"	t	typeref:struct:s_point
 t_sprite	include/so_long.h	/^}	t_sprite;$/;"	t	typeref:struct:s_sprite
 t_win_list	lib/mlx/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
 t_xpm_col	lib/mlx/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
@@ -406,7 +413,5 @@ wordcounter	lib/libft/ft_split.c	/^static int	wordcounter(char const *s, char c)
 wordcounter	lib/libft/ft_splitquote.c	/^static int	wordcounter(char *s, char c)$/;"	f	file:
 wordfiller	lib/libft/ft_split.c	/^static void	wordfiller(char *j, char *str, char c)$/;"	f	file:
 wordfiller	lib/libft/ft_splitquote.c	/^static void	wordfiller(char *j, char *str, char c)$/;"	f	file:
-x	include/so_long.h	/^	int	x;$/;"	m	struct:s_point
 xpm1_x	lib/mlx/test/main.c	/^int	xpm1_x;$/;"	v
 xpm1_y	lib/mlx/test/main.c	/^int	xpm1_y;$/;"	v
-y	include/so_long.h	/^	int	y;$/;"	m	struct:s_point
