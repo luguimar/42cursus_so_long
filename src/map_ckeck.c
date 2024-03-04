@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 01:15:48 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/01 05:26:19 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/04 02:07:43 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ static int	map_filler(char *file, t_game *game)
 	{
 		game->map.map[i] = ft_substr(line, 0, game->map.cols);
 		if (!game->map.map[i])
-			return (error_free_map(game->map.map, \
-				0, "Error: Memory allocation failed\n"));
+			return (*(int *)error_free_msg("Error: Memory allocation failed\n", \
+			0, game, game->map.map));
 		free(line);
 		line = get_next_line(fd);
 		i++;
@@ -74,6 +74,7 @@ static int	check_rectangle(int fd, char *line, t_game *game)
 	int	rectangle;
 
 	rectangle = 1;
+	game->map.rows = 0;
 	while (line)
 	{
 		if ((line[ft_strlen(line) - 1] != '\n' && (int) ft_strlen(line) != \
@@ -106,6 +107,8 @@ static int	check_map_extra(char *file, int fd, char *line, t_game *game)
 	game->map.player_nr = 0;
 	if (!check_map_elements(game, -1, -1))
 		return (0);
+	if (game->map.collectibles == 0)
+		return (error_msg("Error: Map has no collectibles\n", 0));
 	if (!path_checker(game))
 		return (error_msg \
 			("Error: Exit and/or not all collectibles are reachable\n", 0));

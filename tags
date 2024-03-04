@@ -127,8 +127,8 @@ endian1	lib/mlx/test/main.c	/^int	endian1;$/;"	v
 endian2	lib/mlx/test/main.c	/^int	endian2;$/;"	v
 endian3	lib/mlx/test/main.c	/^int	endian3;$/;"	v
 endian4	lib/mlx/test/main.c	/^int	endian4;$/;"	v
-error_free_map	src/flood_fill.c	/^int	error_free_map(char **map, int ret, char *msg)$/;"	f
-error_msg	src/main.c	/^int	error_msg(char *str, int ret)$/;"	f
+error_free_msg	src/main.c	/^void	*error_free_msg(char *msg, int flag, t_game *game, char **map)$/;"	f
+error_msg	src/main.c	/^int	error_msg(char *msg, int ret)$/;"	f
 exit_nr	include/so_long.h	/^	int		exit_nr;$/;"	m	struct:s_map
 exit_x	include/so_long.h	/^	int		exit_x;$/;"	m	struct:s_map
 exit_y	include/so_long.h	/^	int		exit_y;$/;"	m	struct:s_map
@@ -246,7 +246,7 @@ main	lib/mlx/test/run_tests.sh	/^main(){$/;"	f
 main	src/main.c	/^int	main(int argc, char **argv)$/;"	f
 map	include/so_long.h	/^	char	**map;$/;"	m	struct:s_map
 map	include/so_long.h	/^	t_map		map;$/;"	m	struct:s_game
-map_duplicator	src/flood_fill.c	/^static int	map_duplicator(t_game *game, char **map)$/;"	f	file:
+map_duplicator	src/flood_fill.c	/^static char	**map_duplicator(t_game *game, char **map)$/;"	f	file:
 map_filler	src/map_ckeck.c	/^static int	map_filler(char *file, t_game *game)$/;"	f	file:
 mask	lib/mlx/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list
 mlx	include/so_long.h	/^	void	*mlx;$/;"	m	struct:s_graphics

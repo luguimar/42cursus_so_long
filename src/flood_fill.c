@@ -6,43 +6,29 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 03:45:00 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/01 05:32:23 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/04 02:14:54 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	error_free_map(char **map, int ret, char *msg)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
-	map = NULL;
-	return (error_msg(msg, ret));
-}
-
-static int	map_duplicator(t_game *game, char **map)
+static char	**map_duplicator(t_game *game, char **map)
 {
 	int	i;
 	int	j;
 
-	map = malloc(sizeof(char *) * (game->map.rows) + 1);
+	map = malloc(sizeof(char *) * (game->map.rows + 1));
 	if (!map)
-		return (error_free_map(map, 0, "Error: Memory allocation failed\n"));
+		return ((char **)error_free_msg("Error: Memory allocation failed\n", 2, \
+		game, 0));
 	map[game->map.rows] = NULL;
 	i = 0;
 	while (i < game->map.rows)
 	{
-		map[i] = malloc(sizeof(char) * (game->map.cols) + 1);
+		map[i] = malloc(sizeof(char) * (game->map.cols + 1));
 		if (!map[i])
-			return (error_free_map \
-				(map, 0, "Error: Memory allocation failed\n"));
+			return ((char **)error_free_msg("Error: Memory allocation \
+			failed\n", 2, game, map));
 		map[i][game->map.cols] = '\0';
 		j = 0;
 		while (j < game->map.cols)
@@ -52,7 +38,7 @@ static int	map_duplicator(t_game *game, char **map)
 		}
 		i++;
 	}
-	return (1);
+	return (map);
 }
 
 static int	flood_fill(t_game *game, int x, int y, char **map)
@@ -83,12 +69,13 @@ int	path_checker(t_game *game)
 	char		**map;
 
 	map = NULL;
-	if (!map_duplicator(game, map))
+	map = map_duplicator(game, map);
+	if (!map)
 		return (0);
 	get_player_position(game);
 	get_exit_position(game);
 	if (!flood_fill(game, game->player.instant_x, game->player.instant_y, map))
-		return (error_free_map(map, 0, NULL));
+		return (*(int *)error_free_msg(0, 0, game, map));
 	free_array_of_strings(map);
 	return (1);
 }
