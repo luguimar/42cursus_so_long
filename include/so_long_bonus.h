@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:28:32 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 20:35:00 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 23:18:42 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_graphics
 	void	*mouth_open_l;
 	void	*mouth_open_r;
 	int		count;
+	int		random_nr;
 	t_enemy	*enemies;
 }	t_graphics;
 
@@ -108,9 +109,9 @@ void	mlx_start(t_game *game);
 int		mlx_close(t_game *game);
 int		map_render(t_game *game);
 int		key_hook(int keycode, t_game *game);
-void	map_render_enemy(t_game *game, int i, int j, int enemy_nr);
+void	map_render_enemy(t_game *game, int i, int j, int *enemy_nr);
 int		check_map_aux(t_game *game);
 void	map_rebuild(t_game *game);
-void	map_odd_enemy_movement(t_game *game, int i, int j, int enemy_nr);
+void	map_render_extra1(t_game *game, int i, int j);
 
 #endif

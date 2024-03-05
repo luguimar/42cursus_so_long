@@ -167,8 +167,8 @@ endian3	lib/mlx/test/main.c	/^int	endian3;$/;"	v
 endian4	lib/mlx/test/main.c	/^int	endian4;$/;"	v
 enemies	include/so_long_bonus.h	/^	int		enemies;$/;"	m	struct:s_map
 enemies	include/so_long_bonus.h	/^	t_enemy	*enemies;$/;"	m	struct:s_graphics
-enemy_movement	src_bonus/enemies_bonus.c	/^static void	enemy_movement(t_game *game, int i, int j, int enemy_nr)$/;"	f	file:
-enemy_movement_extra	src_bonus/enemies_bonus.c	/^static void	enemy_movement_extra(t_game *game, int i, int j, int enemy_nr)$/;"	f	file:
+enemy_movement	src_bonus/enemies_bonus.c	/^static void	enemy_movement(t_game *game, int i, int j, int *enemy_nr)$/;"	f	file:
+enemy_movement_extra	src_bonus/enemies_bonus.c	/^static void	enemy_movement_extra(t_game *game, int i, int j, int *enemy_nr)$/;"	f	file:
 error_free_msg	src/main.c	/^void	*error_free_msg(char *msg, int flag, t_game *game, char **map)$/;"	f
 error_free_msg	src_bonus/main_bonus.c	/^void	*error_free_msg(char *msg, int flag, t_game *game, char **map)$/;"	f
 error_msg	src/main.c	/^int	error_msg(char *msg, int ret)$/;"	f
@@ -316,14 +316,15 @@ map_filler	src/map_ckeck.c	/^static int	map_filler(char *file, t_game *game)$/;"
 map_filler	src_bonus/map_ckeck_bonus.c	/^static int	map_filler(char *file, t_game *game)$/;"	f	file:
 map_filler_extra	src/map_check_extra.c	/^int	map_filler_extra(char **line, int fd)$/;"	f
 map_filler_extra	src_bonus/map_check_extra_bonus.c	/^int	map_filler_extra(char **line, int fd)$/;"	f
-map_odd_enemy_movement	src_bonus/enemies_bonus.c	/^void	map_odd_enemy_movement(t_game *game, int i, int j, int enemy_nr)$/;"	f
 map_rebuild	src_bonus/mlx_config_extra_bonus.c	/^void	map_rebuild(t_game *game)$/;"	f
+map_rebuild_extra	src_bonus/mlx_config_extra_bonus.c	/^void	map_rebuild_extra(t_game *game, int i, int j)$/;"	f
 map_render	src/mlx_config.c	/^void	map_render(t_game *game)$/;"	f
 map_render	src_bonus/mlx_config_bonus.c	/^int	map_render(t_game *game)$/;"	f
-map_render_enemy	src_bonus/enemies_bonus.c	/^void	map_render_enemy(t_game *game, int i, int j, int enemy_nr)$/;"	f
-map_render_enemy_extra	src_bonus/enemies_bonus.c	/^static void	map_render_enemy_extra(t_game *game, int i, int j, int enemy_nr)$/;"	f	file:
+map_render_enemy	src_bonus/enemies_bonus.c	/^void	map_render_enemy(t_game *game, int i, int j, int *enemy_nr)$/;"	f
+map_render_enemy_extra	src_bonus/enemies_bonus.c	/^static void	map_render_enemy_extra(t_game *game, int i, int j, int *enemy_nr)$/;"	f	file:
 map_render_extra	src/mlx_config.c	/^static void	map_render_extra(t_game *game, int i, int j)$/;"	f	file:
-map_render_extra	src_bonus/mlx_config_bonus.c	/^static void	map_render_extra(t_game *game, int i, int j, int *enemy_nr)$/;"	f	file:
+map_render_extra	src_bonus/mlx_config_bonus.c	/^static void	map_render_extra(t_game *game, int i, int j)$/;"	f	file:
+map_render_extra1	src_bonus/mlx_config_extra_bonus.c	/^void	map_render_extra1(t_game *game, int i, int j)$/;"	f
 mask	lib/mlx/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list
 mlx	include/so_long.h	/^	void	*mlx;$/;"	m	struct:s_graphics
 mlx	include/so_long_bonus.h	/^	void	*mlx;$/;"	m	struct:s_graphics
@@ -414,6 +415,7 @@ mouth_shut_l	include/so_long_bonus.h	/^	void	*mouth_shut_l;$/;"	m	struct:s_graph
 mouth_shut_r	include/so_long_bonus.h	/^	void	*mouth_shut_r;$/;"	m	struct:s_graphics
 move	src/movements.c	/^static void	move(int x, int y, t_game *game)$/;"	f	file:
 move	src_bonus/movements_bonus.c	/^static void	move(int x, int y, t_game *game)$/;"	f	file:
+move_extra	src_bonus/movements_bonus.c	/^static void	move_extra(int x, int y, t_game *game)$/;"	f	file:
 moves	include/so_long.h	/^	int			moves;$/;"	m	struct:s_game
 moves	include/so_long.h	/^	int		moves;$/;"	m	struct:s_player
 moves	include/so_long_bonus.h	/^	int			moves;$/;"	m	struct:s_game
@@ -438,6 +440,7 @@ prev	lib/libft/libft.h	/^	struct s_list	*prev;$/;"	m	struct:s_list	typeref:struc
 private_cmap	lib/mlx/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar
 pshm_format	lib/mlx/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar
 quote	lib/libft/quotes.c	/^char	quote(char *s, int index)$/;"	f
+random_nr	include/so_long_bonus.h	/^	int		random_nr;$/;"	m	struct:s_graphics
 rock	include/so_long.h	/^	void	*rock;$/;"	m	struct:s_graphics
 rock	include/so_long_bonus.h	/^	void	*rock;$/;"	m	struct:s_graphics
 root	lib/mlx/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar

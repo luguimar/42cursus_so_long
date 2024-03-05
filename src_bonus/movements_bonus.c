@@ -6,11 +6,20 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 04:05:46 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 07:48:50 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:22:17 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long_bonus.h"
+
+static void	move_extra(int x, int y, t_game *game)
+{
+	if (game->map.map[x][y] == 'D')
+	{
+		ft_printf("You lost! You made %d moves!\n", game->player.moves);
+		mlx_close(game);
+	}
+}
 
 static void	move(int x, int y, t_game *game)
 {
@@ -26,6 +35,7 @@ static void	move(int x, int y, t_game *game)
 			ft_printf("You won! You made %d moves!\n", game->player.moves);
 			mlx_close(game);
 		}
+		move_extra(x, y, game);
 		if (game->player.instant_x == game->map.exit_x && game->player. \
 		instant_y == game->map.exit_y)
 			game->map.map[game->player.instant_x][game->player.instant_y] = 'E';

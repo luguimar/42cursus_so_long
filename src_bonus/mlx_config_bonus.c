@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 02:07:31 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 20:23:37 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 23:22:48 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,15 @@ int	mlx_close(t_game *game)
 	return (0);
 }
 
-static void	map_render_extra(t_game *game, int i, int j, int *enemy_nr)
+static void	map_render_extra(t_game *game, int i, int j)
 {
-	if (game->map.map[i][j] == 'P')
+	if (game->map.map[i][j] == 'C')
+		mlx_put_image_to_window(game->graphics.mlx, \
+			game->graphics.win, game->graphics.gold, j * SIZE, i * SIZE);
+	else if (game->map.map[i][j] == 'E')
+		mlx_put_image_to_window(game->graphics.mlx, \
+			game->graphics.win, game->graphics.exit, j * SIZE, i * SIZE);
+	else if (game->map.map[i][j] == 'P')
 	{
 		if (game->player.direction == 0)
 			mlx_put_image_to_window(game->graphics.mlx, \
@@ -46,21 +52,18 @@ static void	map_render_extra(t_game *game, int i, int j, int *enemy_nr)
 		mlx_put_image_to_window(game->graphics.mlx, \
 		game->graphics.win, game->graphics.empty, j * SIZE, i * SIZE);
 	else if (game->map.map[i][j] == 'D')
-	{
-		if (game->map.enemies <= *enemy_nr)
-			*enemy_nr = 0;
-		map_render_enemy(game, i, j, (*enemy_nr)++);
-		map_odd_enemy_movement(game, i, j, *enemy_nr);
-	}
+		map_render_extra1(game, i, j);
 }
 
 int	map_render(t_game *game)
 {
-	int	i;
-	int	j;
-	int	enemy_nr;
+	static int	frames;
+	int			i;
+	int			j;
 
-	enemy_nr = 0;
+	if (++frames < 100)
+		return (1);
+	frames = 0;
 	map_rebuild(game);
 	i = -1;
 	while (++i < game->map.rows)
@@ -71,13 +74,8 @@ int	map_render(t_game *game)
 			if (game->map.map[i][j] == '1')
 				mlx_put_image_to_window(game->graphics.mlx, \
 				game->graphics.win, game->graphics.rock, j * SIZE, i * SIZE);
-			else if (game->map.map[i][j] == 'C')
-				mlx_put_image_to_window(game->graphics.mlx, \
-				game->graphics.win, game->graphics.gold, j * SIZE, i * SIZE);
-			else if (game->map.map[i][j] == 'E')
-				mlx_put_image_to_window(game->graphics.mlx, \
-				game->graphics.win, game->graphics.exit, j * SIZE, i * SIZE);
-			map_render_extra(game, i, j, &enemy_nr);
+			else
+				map_render_extra(game, i, j);
 		}
 	}
 	return (1);
