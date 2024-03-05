@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_ckeck.c                                        :+:      :+:    :+:   */
+/*   map_ckeck_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 01:15:48 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 08:13:30 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 10:20:44 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 static int	check_map_elements(t_game *game, int i, int j)
 {
@@ -102,9 +102,10 @@ static int	check_map_extra(char *file, int fd, char **line, t_game *game)
 	if (!map_filler(file, game))
 		return (0);
 	game->map.collectibles = 0;
+	game->map.enemies = 0;
 	game->map.exit_nr = 0;
 	game->map.player_nr = 0;
-	if (!check_map_elements(game, -1, -1))
+	if (!check_map_elements(game, -1, -1) || !check_map_aux(game))
 		return (0);
 	if (game->map.collectibles == 0)
 	{

@@ -6,13 +6,17 @@
 #    By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 22:33:22 by luguimar          #+#    #+#              #
-#    Updated: 2024/03/05 06:05:34 by luguimar         ###   ########.fr        #
+#    Updated: 2024/03/05 13:12:23 by luguimar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 SRC = src/main.c src/map_ckeck.c src/flood_fill.c src/map_check_extra.c src/flood_fill_extra.c src/mlx_config.c src/movements.c
+
+SRC_BONUS = src_bonus/main_bonus.c src_bonus/map_ckeck_bonus.c src_bonus/flood_fill_bonus.c src_bonus/map_check_extra_bonus.c src_bonus/flood_fill_extra_bonus.c src_bonus/mlx_config_bonus.c src_bonus/movements_bonus.c src_bonus/enemies_bonus.c src_bonus/mlx_config_extra_bonus.c
+
+BONUS_OBJS = ${SRC_BONUS:.c=.o}
 
 OBJS = ${SRC:.c=.o}
 
@@ -42,17 +46,22 @@ $(MLX): download-and-extract-mlx
 		${MAKE} ${MLX_PATH}
 
 download-and-extract-mlx:
-		${DOWNLOAD} ${MINILIBX_FILE} ${MINILIBX_URL}
-		${EXTRACT} ${MINILIBX_FILE} -C ${LIBRARIES}
-		${REMOVE} ${MINILIBX_FILE}
-		${MOVE} lib/minilibx-linux ${MLX_PATH}
+		if [ ! -d "${MLX_PATH}" ]; then \
+		${DOWNLOAD} ${MINILIBX_FILE} ${MINILIBX_URL}; \
+		${EXTRACT} ${MINILIBX_FILE} -C ${LIBRARIES}; \
+		${REMOVE} ${MINILIBX_FILE}; \
+		${MOVE} lib/minilibx-linux ${MLX_PATH}; \
+		fi
 
 all: ${NAME}
+
+bonus: ${MLX} ${BONUS_OBJS} ${LIBFT}
+		${CC} ${BONUS_OBJS} ${LIBFT} ${MLX} -o ${NAME}
 
 clean:
 		${MAKE} ${LIBFT_PATH} clean
 		if [ -d "${MLX_PATH}" ]; then ${MAKE} ${MLX_PATH} clean; fi
-		${RM} ${OBJS}
+		${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean: clean
 		${MAKE} ${LIBFT_PATH} fclean

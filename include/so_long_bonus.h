@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:28:32 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 07:52:59 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:49:35 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../lib/libft/libft.h"
 # include "../lib/mlx/mlx.h"
@@ -47,6 +47,18 @@ typedef struct s_player
 	int		moves;
 }	t_player;
 
+typedef struct s_enemy
+{
+	int			instant_x;
+	int			instant_y;
+	int			next_x;
+	int			next_y;
+	int			direction;
+	int			path;
+	int			mouth;
+	int			flag;
+}	t_enemy;
+
 typedef struct s_graphics
 {
 	void	*mlx;
@@ -55,6 +67,12 @@ typedef struct s_graphics
 	void	*rock;
 	void	*gold;
 	void	*exit;
+	void	*mouth_shut_l;
+	void	*mouth_shut_r;
+	void	*mouth_open_l;
+	void	*mouth_open_r;
+	int		count;
+	t_enemy	*enemies;
 }	t_graphics;
 
 typedef struct s_map
@@ -63,6 +81,7 @@ typedef struct s_map
 	int		rows;
 	int		cols;
 	int		collectibles;
+	int		enemies;
 	int		exit_x;
 	int		exit_y;
 	int		player_nr;
@@ -86,7 +105,10 @@ int		check_map_elements_extra(t_game *game, int i, int j);
 void	map_duplicator_extra(t_game *game, char **map, int i, int j);
 void	mlx_start(t_game *game);
 int		mlx_close(t_game *game);
-void	map_render(t_game *game);
+int		map_render(t_game *game);
 int		key_hook(int keycode, t_game *game);
+void	map_render_enemy(t_game *game, int i, int j, int enemy_nr);
+int		check_map_aux(t_game *game);
+void	map_rebuild(t_game *game);
 
 #endif
