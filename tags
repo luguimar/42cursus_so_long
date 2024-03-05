@@ -19,12 +19,14 @@ CFLAGS	lib/mlx/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
 CFLAGS	lib/mlx/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
 D	include/so_long.h	/^	D = 100,$/;"	e	enum:e_key
 DOWN	include/so_long.h	/^	DOWN = 65364,$/;"	e	enum:e_key
+DOWNLOAD	Makefile	/^DOWNLOAD = wget -O$/;"	m
 EMPTY	include/so_long.h	20;"	d
 ENV_DISPLAY	lib/mlx/mlx_int.h	43;"	d
 ERR_NO_TRUECOLOR	lib/mlx/mlx_int.h	45;"	d
 ESC	include/so_long.h	/^	ESC = 65307,$/;"	e	enum:e_key
 EXIT	include/so_long.h	25;"	d
 EXTRA	lib/libft/Makefile	/^EXTRA = ft_putnbr_base_fd.c ft_printf.c get_next_line.c get_next_line_utils.c free_array_of_strings.c ft_splitquote.c quotes.c quotes_utils.c ft_matrixlen.c ft_abs_value.c ft_atol.c ft_strcmp.c int_size_utils.c$/;"	m
+EXTRACT	Makefile	/^EXTRACT = tar -xvf$/;"	m
 GOLD	include/so_long.h	24;"	d
 IM1_SX	lib/mlx/test/main.c	7;"	d	file:
 IM1_SY	lib/mlx/test/main.c	8;"	d	file:
@@ -40,8 +42,11 @@ LFLAGS	lib/mlx/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -
 LIBFT	Makefile	/^LIBFT = ${LIBFT_PATH}\/libft.a$/;"	m
 LIBFT_H	lib/libft/libft.h	14;"	d
 LIBFT_PATH	Makefile	/^LIBFT_PATH = lib\/libft$/;"	m
+LIBRARIES	Makefile	/^LIBRARIES = lib$/;"	m
 LOCALHOST	lib/mlx/mlx_int.h	44;"	d
 MAKE	Makefile	/^MAKE = make -C$/;"	m
+MINILIBX_FILE	Makefile	/^MINILIBX_FILE = minilibx-linux.tgz$/;"	m
+MINILIBX_URL	Makefile	/^MINILIBX_URL = https:\/\/cdn.intra.42.fr\/document\/document\/21300\/minilibx-linux.tgz$/;"	m
 MLX	Makefile	/^MLX = -L ${MLX_PATH} -lmlx -Ilmlx -lXext -lX11 -lm$/;"	m
 MLX_H	lib/mlx/mlx.h	32;"	d
 MLX_INT_H	lib/mlx/mlx_int.h	19;"	d
@@ -50,6 +55,7 @@ MLX_PATH	Makefile	/^MLX_PATH = lib\/mlx$/;"	m
 MLX_TYPE_SHM	lib/mlx/mlx_int.h	37;"	d
 MLX_TYPE_SHM_PIXMAP	lib/mlx/mlx_int.h	36;"	d
 MLX_TYPE_XIMAGE	lib/mlx/mlx_int.h	38;"	d
+MOVE	Makefile	/^MOVE = mv$/;"	m
 NAME	Makefile	/^NAME = so_long$/;"	m
 NAME	lib/libft/Makefile	/^NAME = libft.a$/;"	m
 NAME	lib/mlx/Makefile.mk	/^NAME		= libmlx.a$/;"	m
@@ -64,9 +70,9 @@ PART1	lib/libft/Makefile	/^PART1 = ft_tolower.c ft_toupper.c ft_isprint.c ft_isa
 PART2	lib/libft/Makefile	/^PART2 = ft_itoa.c ft_strjoin.c ft_split.c ft_striteri.c ft_strmapi.c ft_substr.c ft_strtrim.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c$/;"	m
 PLAYER_L	include/so_long.h	22;"	d
 PLAYER_R	include/so_long.h	23;"	d
+REMOVE	Makefile	/^REMOVE = rm -f$/;"	m
 RETURN	lib/mlx/mlx_xpm.c	17;"	d	file:
 RIGHT	include/so_long.h	/^	RIGHT = 65363,$/;"	e	enum:e_key
-RM	Makefile	/^RM = rm -f$/;"	m
 RM	lib/libft/Makefile	/^RM = rm -f$/;"	m
 ROCK	include/so_long.h	21;"	d
 S	include/so_long.h	/^	S = 115,$/;"	e	enum:e_key
