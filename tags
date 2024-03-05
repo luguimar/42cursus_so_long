@@ -25,17 +25,17 @@ DOWN	include/so_long.h	/^	DOWN = 65364,$/;"	e	enum:e_key
 DOWN	include/so_long_bonus.h	/^	DOWN = 65364,$/;"	e	enum:e_key
 DOWNLOAD	Makefile	/^DOWNLOAD = wget -O$/;"	m
 EMPTY	include/so_long.h	20;"	d
-EMPTY	include/so_long_bonus.h	20;"	d
+EMPTY	include/so_long_bonus.h	21;"	d
 ENV_DISPLAY	lib/mlx/mlx_int.h	43;"	d
 ERR_NO_TRUECOLOR	lib/mlx/mlx_int.h	45;"	d
 ESC	include/so_long.h	/^	ESC = 65307,$/;"	e	enum:e_key
 ESC	include/so_long_bonus.h	/^	ESC = 65307,$/;"	e	enum:e_key
 EXIT	include/so_long.h	25;"	d
-EXIT	include/so_long_bonus.h	25;"	d
+EXIT	include/so_long_bonus.h	26;"	d
 EXTRA	lib/libft/Makefile	/^EXTRA = ft_putnbr_base_fd.c ft_printf.c get_next_line.c get_next_line_utils.c free_array_of_strings.c ft_splitquote.c quotes.c quotes_utils.c ft_matrixlen.c ft_abs_value.c ft_atol.c ft_strcmp.c int_size_utils.c$/;"	m
 EXTRACT	Makefile	/^EXTRACT = tar -xvf$/;"	m
 GOLD	include/so_long.h	24;"	d
-GOLD	include/so_long_bonus.h	24;"	d
+GOLD	include/so_long_bonus.h	25;"	d
 IM1_SX	lib/mlx/test/main.c	7;"	d	file:
 IM1_SY	lib/mlx/test/main.c	8;"	d	file:
 IM3_SX	lib/mlx/test/main.c	9;"	d	file:
@@ -78,20 +78,20 @@ OBJ_DIR	lib/mlx/Makefile.mk	/^OBJ_DIR = obj$/;"	m
 PART1	lib/libft/Makefile	/^PART1 = ft_tolower.c ft_toupper.c ft_isprint.c ft_isascii.c ft_isalnum.c ft_isdigit.c ft_isalpha.c ft_atoi.c ft_strlen.c ft_strlcat.c ft_strncmp.c ft_strdup.c ft_calloc.c ft_memcpy.c ft_strchr.c ft_strrchr.c ft_strnstr.c ft_bzero.c ft_memchr.c ft_memcmp.c ft_memset.c ft_memmove.c ft_strlcpy.c$/;"	m
 PART2	lib/libft/Makefile	/^PART2 = ft_itoa.c ft_strjoin.c ft_split.c ft_striteri.c ft_strmapi.c ft_substr.c ft_strtrim.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c$/;"	m
 PLAYER_L	include/so_long.h	22;"	d
-PLAYER_L	include/so_long_bonus.h	22;"	d
+PLAYER_L	include/so_long_bonus.h	23;"	d
 PLAYER_R	include/so_long.h	23;"	d
-PLAYER_R	include/so_long_bonus.h	23;"	d
+PLAYER_R	include/so_long_bonus.h	24;"	d
 REMOVE	Makefile	/^REMOVE = rm -f$/;"	m
 RETURN	lib/mlx/mlx_xpm.c	17;"	d	file:
 RIGHT	include/so_long.h	/^	RIGHT = 65363,$/;"	e	enum:e_key
 RIGHT	include/so_long_bonus.h	/^	RIGHT = 65363,$/;"	e	enum:e_key
 RM	lib/libft/Makefile	/^RM = rm -f$/;"	m
 ROCK	include/so_long.h	21;"	d
-ROCK	include/so_long_bonus.h	21;"	d
+ROCK	include/so_long_bonus.h	22;"	d
 S	include/so_long.h	/^	S = 115,$/;"	e	enum:e_key
 S	include/so_long_bonus.h	/^	S = 115,$/;"	e	enum:e_key
 SIZE	include/so_long.h	19;"	d
-SIZE	include/so_long_bonus.h	19;"	d
+SIZE	include/so_long_bonus.h	20;"	d
 SO_LONG_BONUS_H	include/so_long_bonus.h	14;"	d
 SO_LONG_H	include/so_long.h	14;"	d
 SRC	Makefile	/^SRC = src\/main.c src\/map_ckeck.c src\/flood_fill.c src\/map_check_extra.c src\/flood_fill_extra.c src\/mlx_config.c src\/movements.c$/;"	m
@@ -316,6 +316,7 @@ map_filler	src/map_ckeck.c	/^static int	map_filler(char *file, t_game *game)$/;"
 map_filler	src_bonus/map_ckeck_bonus.c	/^static int	map_filler(char *file, t_game *game)$/;"	f	file:
 map_filler_extra	src/map_check_extra.c	/^int	map_filler_extra(char **line, int fd)$/;"	f
 map_filler_extra	src_bonus/map_check_extra_bonus.c	/^int	map_filler_extra(char **line, int fd)$/;"	f
+map_odd_enemy_movement	src_bonus/enemies_bonus.c	/^void	map_odd_enemy_movement(t_game *game, int i, int j, int enemy_nr)$/;"	f
 map_rebuild	src_bonus/mlx_config_extra_bonus.c	/^void	map_rebuild(t_game *game)$/;"	f
 map_render	src/mlx_config.c	/^void	map_render(t_game *game)$/;"	f
 map_render	src_bonus/mlx_config_bonus.c	/^int	map_render(t_game *game)$/;"	f

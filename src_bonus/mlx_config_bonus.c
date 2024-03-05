@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 02:07:31 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 12:23:07 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 20:23:37 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,12 @@ static void	map_render_extra(t_game *game, int i, int j, int *enemy_nr)
 		mlx_put_image_to_window(game->graphics.mlx, \
 		game->graphics.win, game->graphics.empty, j * SIZE, i * SIZE);
 	else if (game->map.map[i][j] == 'D')
+	{
+		if (game->map.enemies <= *enemy_nr)
+			*enemy_nr = 0;
 		map_render_enemy(game, i, j, (*enemy_nr)++);
+		map_odd_enemy_movement(game, i, j, *enemy_nr);
+	}
 }
 
 int	map_render(t_game *game)

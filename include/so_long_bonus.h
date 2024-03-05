@@ -6,13 +6,14 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:28:32 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 12:49:35 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 20:35:00 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
+# include <math.h>
 # include "../lib/libft/libft.h"
 # include "../lib/mlx/mlx.h"
 
@@ -110,5 +111,6 @@ int		key_hook(int keycode, t_game *game);
 void	map_render_enemy(t_game *game, int i, int j, int enemy_nr);
 int		check_map_aux(t_game *game);
 void	map_rebuild(t_game *game);
+void	map_odd_enemy_movement(t_game *game, int i, int j, int enemy_nr);
 
 #endif
