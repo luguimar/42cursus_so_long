@@ -5,57 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 05:12:31 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/01 05:13:11 by luguimar         ###   ########.fr       */
+/*   Created: 2024/03/05 01:42:46 by luguimar          #+#    #+#             */
+/*   Updated: 2024/03/05 01:46:04 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	get_player_position(t_game *game)
+void	map_duplicator_extra(t_game *game, char **map, int i, int j)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < game->map.rows)
+	map[i][game->map.cols] = '\0';
+	while (j < game->map.cols)
 	{
-		j = 0;
-		while (j < game->map.cols)
-		{
-			if (game->map.map[i][j] == 'P')
-			{
-				game->player.instant_x = i;
-				game->player.instant_y = j;
-				game->player.previous_x = i;
-				game->player.previous_y = j;
-				return ;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-void	get_exit_position(t_game *game)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < game->map.rows)
-	{
-		j = 0;
-		while (j < game->map.cols)
-		{
-			if (game->map.map[i][j] == 'E')
-			{
-				game->map.exit_x = i;
-				game->map.exit_y = j;
-				return ;
-			}
-			j++;
-		}
-		i++;
+		map[i][j] = game->map.map[i][j];
+		j++;
 	}
 }

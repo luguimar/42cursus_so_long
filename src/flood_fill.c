@@ -6,11 +6,59 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 03:45:00 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/04 02:14:54 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 01:46:37 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+static void	get_player_position(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < game->map.rows)
+	{
+		j = 0;
+		while (j < game->map.cols)
+		{
+			if (game->map.map[i][j] == 'P')
+			{
+				game->player.instant_x = i;
+				game->player.instant_y = j;
+				game->player.previous_x = i;
+				game->player.previous_y = j;
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+static void	get_exit_position(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < game->map.rows)
+	{
+		j = 0;
+		while (j < game->map.cols)
+		{
+			if (game->map.map[i][j] == 'E')
+			{
+				game->map.exit_x = i;
+				game->map.exit_y = j;
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
 static char	**map_duplicator(t_game *game, char **map)
 {
@@ -19,24 +67,24 @@ static char	**map_duplicator(t_game *game, char **map)
 
 	map = malloc(sizeof(char *) * (game->map.rows + 1));
 	if (!map)
-		return ((char **)error_free_msg("Error: Memory allocation failed\n", 2, \
-		game, 0));
+	{
+		free_array_of_strings(map);
+		error_msg("Error: Memory allocation failed\n", 0);
+		return (NULL);
+	}
 	map[game->map.rows] = NULL;
-	i = 0;
-	while (i < game->map.rows)
+	i = -1;
+	while (++i < game->map.rows)
 	{
 		map[i] = malloc(sizeof(char) * (game->map.cols + 1));
 		if (!map[i])
-			return ((char **)error_free_msg("Error: Memory allocation \
-			failed\n", 2, game, map));
-		map[i][game->map.cols] = '\0';
-		j = 0;
-		while (j < game->map.cols)
 		{
-			map[i][j] = game->map.map[i][j];
-			j++;
+			free_array_of_strings(map);
+			error_msg("Error: Memory allocation failed\n", 0);
+			return (NULL);
 		}
-		i++;
+		j = 0;
+		map_duplicator_extra(game, map, i, j);
 	}
 	return (map);
 }
@@ -75,7 +123,10 @@ int	path_checker(t_game *game)
 	get_player_position(game);
 	get_exit_position(game);
 	if (!flood_fill(game, game->player.instant_x, game->player.instant_y, map))
-		return (*(int *)error_free_msg(0, 0, game, map));
+	{
+		free_array_of_strings(map);
+		return (0);
+	}
 	free_array_of_strings(map);
 	return (1);
 }

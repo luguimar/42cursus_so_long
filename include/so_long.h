@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:28:32 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/04 01:46:18 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 01:44:04 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ typedef struct s_game
 	t_map		map;
 }	t_game;
 
-void	*error_free_msg(char *msg, int flag, t_game *game, char **map);
 int		error_msg(char *msg, int ret);
 int		path_checker(t_game *game);
 int		check_map(char *file, t_game *game);
-void	get_player_position(t_game *game);
-void	get_exit_position(t_game *game);
+int		map_filler_extra(char **line, int fd);
+int		check_map_elements_extra(t_game *game, int i, int j);
+void	map_duplicator_extra(t_game *game, char **map, int i, int j);
 
 #endif

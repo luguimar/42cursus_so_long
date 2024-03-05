@@ -72,7 +72,7 @@ ROCK	include/so_long.h	21;"	d
 S	include/so_long.h	/^	S = 115,$/;"	e	enum:e_key
 SIZE	include/so_long.h	19;"	d
 SO_LONG_H	include/so_long.h	14;"	d
-SRC	Makefile	/^SRC = src\/main.c src\/map_ckeck.c src\/flood_fill.c src\/flood_fill_extra.c$/;"	m
+SRC	Makefile	/^SRC = src\/main.c src\/map_ckeck.c src\/flood_fill.c src\/map_check_extra.c src\/flood_fill_extra.c$/;"	m
 SRC	lib/libft/Makefile	/^SRC = ${PART1} ${PART2} ${BONUS} ${EXTRA}$/;"	m
 SRC	lib/mlx/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \\$/;"	m
 SRC	lib/mlx/test/Makefile.mk	/^SRC = main.c$/;"	m
@@ -97,8 +97,9 @@ bpp4	lib/mlx/test/main.c	/^int	bpp4;$/;"	v
 check_extension	src/main.c	/^static int	check_extension(char *str, char *ext)$/;"	f	file:
 check_map	src/map_ckeck.c	/^int	check_map(char *file, t_game *game)$/;"	f
 check_map_elements	src/map_ckeck.c	/^static int	check_map_elements(t_game *game, int i, int j)$/;"	f	file:
-check_map_extra	src/map_ckeck.c	/^static int	check_map_extra(char *file, int fd, char *line, t_game *game)$/;"	f	file:
-check_rectangle	src/map_ckeck.c	/^static int	check_rectangle(int fd, char *line, t_game *game)$/;"	f	file:
+check_map_elements_extra	src/map_check_extra.c	/^int	check_map_elements_extra(t_game *game, int i, int j)$/;"	f
+check_map_extra	src/map_ckeck.c	/^static int	check_map_extra(char *file, int fd, char **line, t_game *game)$/;"	f	file:
+check_rectangle	src/map_ckeck.c	/^static int	check_rectangle(int fd, char **line, t_game *game)$/;"	f	file:
 checktype	lib/libft/ft_printf.c	/^int	checktype(int ch, va_list args)$/;"	f
 clean	lib/mlx/configure	/^clean(){$/;"	f
 clean_stash	lib/libft/get_next_line.c	/^static char	*clean_stash(char *stash)$/;"	f	file:
@@ -195,10 +196,10 @@ ft_toupper	lib/libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f
 gc	lib/mlx/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list
 gc	lib/mlx/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img
 gere_mouse	lib/mlx/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f
-get_exit_position	src/flood_fill_extra.c	/^void	get_exit_position(t_game *game)$/;"	f
+get_exit_position	src/flood_fill.c	/^static void	get_exit_position(t_game *game)$/;"	f	file:
 get_line	lib/libft/get_next_line.c	/^static char	*get_line(char *stash)$/;"	f	file:
 get_next_line	lib/libft/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f
-get_player_position	src/flood_fill_extra.c	/^void	get_player_position(t_game *game)$/;"	f
+get_player_position	src/flood_fill.c	/^static void	get_player_position(t_game *game)$/;"	f	file:
 get_stash	lib/libft/get_next_line.c	/^static char	*get_stash(int fd, char *stash)$/;"	f	file:
 get_xlib_include_path	lib/mlx/configure	/^get_xlib_include_path(){$/;"	f
 graphics	include/so_long.h	/^	t_graphics	graphics;$/;"	m	struct:s_game
@@ -247,7 +248,9 @@ main	src/main.c	/^int	main(int argc, char **argv)$/;"	f
 map	include/so_long.h	/^	char	**map;$/;"	m	struct:s_map
 map	include/so_long.h	/^	t_map		map;$/;"	m	struct:s_game
 map_duplicator	src/flood_fill.c	/^static char	**map_duplicator(t_game *game, char **map)$/;"	f	file:
+map_duplicator_extra	src/flood_fill_extra.c	/^void	map_duplicator_extra(t_game *game, char **map, int i, int j)$/;"	f
 map_filler	src/map_ckeck.c	/^static int	map_filler(char *file, t_game *game)$/;"	f	file:
+map_filler_extra	src/map_check_extra.c	/^int	map_filler_extra(char **line, int fd)$/;"	f
 mask	lib/mlx/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list
 mlx	include/so_long.h	/^	void	*mlx;$/;"	m	struct:s_graphics
 mlx	lib/mlx/test/main.c	/^void	*mlx;$/;"	v

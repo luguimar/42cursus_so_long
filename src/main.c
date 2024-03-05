@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 00:18:37 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/04 02:15:46 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 01:31:01 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ int	main(int argc, char **argv)
 		return (error_msg("Error: Invalid file extension\n", 0));
 	if (!check_map(argv[1], &game))
 		return (error_msg("Error: Invalid map\n", 0));
+	free_array_of_strings(game.map.map);
 	return (0);
 }
