@@ -72,7 +72,7 @@ ROCK	include/so_long.h	21;"	d
 S	include/so_long.h	/^	S = 115,$/;"	e	enum:e_key
 SIZE	include/so_long.h	19;"	d
 SO_LONG_H	include/so_long.h	14;"	d
-SRC	Makefile	/^SRC = src\/main.c src\/map_ckeck.c src\/flood_fill.c src\/map_check_extra.c src\/flood_fill_extra.c$/;"	m
+SRC	Makefile	/^SRC = src\/main.c src\/map_ckeck.c src\/flood_fill.c src\/map_check_extra.c src\/flood_fill_extra.c src\/mlx_config.c src\/movements.c$/;"	m
 SRC	lib/libft/Makefile	/^SRC = ${PART1} ${PART2} ${BONUS} ${EXTRA}$/;"	m
 SRC	lib/mlx/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \\$/;"	m
 SRC	lib/mlx/test/Makefile.mk	/^SRC = main.c$/;"	m
@@ -84,7 +84,6 @@ WARN_SHM_ATTACH	lib/mlx/mlx_int.h	46;"	d
 WIN1_SX	lib/mlx/test/main.c	5;"	d	file:
 WIN1_SY	lib/mlx/test/main.c	6;"	d	file:
 X_ShmAttach	lib/mlx/mlx_new_image.c	20;"	d	file:
-addr	include/so_long.h	/^	char	*addr;$/;"	m	struct:s_graphics
 algcounter	lib/libft/ft_itoa.c	/^int	algcounter(int n)$/;"	f
 at_exit	lib/mlx/test/run_tests.sh	/^at_exit() {$/;"	f
 bigger	lib/libft/int_size_utils.c	/^int	bigger(int a, int b)$/;"	f
@@ -122,6 +121,7 @@ direction	include/so_long.h	/^	int		direction;$/;"	m	struct:s_player
 display	lib/mlx/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar
 do_flush	lib/mlx/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar
 e_key	include/so_long.h	/^typedef enum e_key$/;"	g
+empty	include/so_long.h	/^	void	*empty;$/;"	m	struct:s_graphics
 end_loop	lib/mlx/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar
 endian	include/so_long.h	/^	int		endian;$/;"	m	struct:s_graphics
 endian1	lib/mlx/test/main.c	/^int	endian1;$/;"	v
@@ -130,6 +130,7 @@ endian3	lib/mlx/test/main.c	/^int	endian3;$/;"	v
 endian4	lib/mlx/test/main.c	/^int	endian4;$/;"	v
 error_free_msg	src/main.c	/^void	*error_free_msg(char *msg, int flag, t_game *game, char **map)$/;"	f
 error_msg	src/main.c	/^int	error_msg(char *msg, int ret)$/;"	f
+exit	include/so_long.h	/^	void	*exit;$/;"	m	struct:s_graphics
 exit_nr	include/so_long.h	/^	int		exit_nr;$/;"	m	struct:s_map
 exit_x	include/so_long.h	/^	int		exit_x;$/;"	m	struct:s_map
 exit_y	include/so_long.h	/^	int		exit_y;$/;"	m	struct:s_map
@@ -202,6 +203,7 @@ get_next_line	lib/libft/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f
 get_player_position	src/flood_fill.c	/^static void	get_player_position(t_game *game)$/;"	f	file:
 get_stash	lib/libft/get_next_line.c	/^static char	*get_stash(int fd, char *stash)$/;"	f	file:
 get_xlib_include_path	lib/mlx/configure	/^get_xlib_include_path(){$/;"	f
+gold	include/so_long.h	/^	void	*gold;$/;"	m	struct:s_graphics
 graphics	include/so_long.h	/^	t_graphics	graphics;$/;"	m	struct:s_game
 height	include/so_long.h	/^	int		height;$/;"	m	struct:s_graphics
 height	include/so_long.h	/^	int		height;$/;"	m	struct:s_player
@@ -214,9 +216,9 @@ im2	lib/mlx/test/main.c	/^void	*im2;$/;"	v
 im3	lib/mlx/test/main.c	/^void	*im3;$/;"	v
 im4	lib/mlx/test/main.c	/^void	*im4;$/;"	v
 image	lib/mlx/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img
-img	include/so_long.h	/^	void	*img;$/;"	m	struct:s_graphics
-img	include/so_long.h	/^	void	*img;$/;"	m	struct:s_player
 img	include/so_long.h	/^	void	*img;$/;"	m	struct:s_sprite
+img_l	include/so_long.h	/^	void	*img_l;$/;"	m	struct:s_player
+img_r	include/so_long.h	/^	void	*img_r;$/;"	m	struct:s_player
 inquote	lib/libft/quotes.c	/^char	inquote(char *s, int index)$/;"	f
 instant_x	include/so_long.h	/^	int		instant_x;$/;"	m	struct:s_player
 instant_y	include/so_long.h	/^	int		instant_y;$/;"	m	struct:s_player
@@ -227,6 +229,7 @@ is_end_wordquote	lib/libft/quotes_utils.c	/^int	is_end_wordquote(char *s, int in
 isneg	lib/libft/ft_itoa.c	/^char	*isneg(int algcount, int n)$/;"	f
 isquote	lib/libft/quotes.c	/^char	isquote(char *s, int index)$/;"	f
 key_hook	lib/mlx/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list
+key_hook	src/movements.c	/^int	key_hook(int keycode, t_game *game)$/;"	f
 key_param	lib/mlx/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list
 key_win1	lib/mlx/test/main.c	/^int	key_win1(int key,void *p)$/;"	f
 key_win2	lib/mlx/test/main.c	/^int	key_win2(int key,void *p)$/;"	f
@@ -251,12 +254,15 @@ map_duplicator	src/flood_fill.c	/^static char	**map_duplicator(t_game *game, cha
 map_duplicator_extra	src/flood_fill_extra.c	/^void	map_duplicator_extra(t_game *game, char **map, int i, int j)$/;"	f
 map_filler	src/map_ckeck.c	/^static int	map_filler(char *file, t_game *game)$/;"	f	file:
 map_filler_extra	src/map_check_extra.c	/^int	map_filler_extra(char **line, int fd)$/;"	f
+map_render	src/mlx_config.c	/^void	map_render(t_game *game)$/;"	f
+map_render_extra	src/mlx_config.c	/^static void	map_render_extra(t_game *game, int i, int j)$/;"	f	file:
 mask	lib/mlx/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list
 mlx	include/so_long.h	/^	void	*mlx;$/;"	m	struct:s_graphics
 mlx	lib/mlx/test/main.c	/^void	*mlx;$/;"	v
 mlx	lib/mlx/test/new_win.c	/^void *mlx;$/;"	v
 mlx_X_error	lib/mlx/mlx_new_image.c	/^int	mlx_X_error;$/;"	v
 mlx_clear_window	lib/mlx/mlx_clear_window.c	/^int		mlx_clear_window(t_xvar *xvar,t_win_list *win)$/;"	f
+mlx_close	src/mlx_config.c	/^int	mlx_close(t_game *game)$/;"	f
 mlx_col_name	lib/mlx/mlx_rgb.c	/^struct s_col_name mlx_col_name[] =$/;"	v	typeref:struct:s_col_name
 mlx_destroy_display	lib/mlx/mlx_destroy_display.c	/^int	mlx_destroy_display(t_xvar *xvar)$/;"	f
 mlx_destroy_image	lib/mlx/mlx_destroy_image.c	/^int	mlx_destroy_image(t_xvar *xvar, t_img *img)$/;"	f
@@ -318,6 +324,7 @@ mlx_new_window	lib/mlx/mlx_new_window.c	/^void	*mlx_new_window(t_xvar *xvar,int 
 mlx_pixel_put	lib/mlx/mlx_pixel_put.c	/^int		mlx_pixel_put(t_xvar *xvar,t_win_list *win,$/;"	f
 mlx_put_image_to_window	lib/mlx/mlx_put_image_to_window.c	/^int	mlx_put_image_to_window(t_xvar *xvar,t_win_list *win,t_img *img,$/;"	f
 mlx_set_font	lib/mlx/mlx_set_font.c	/^void	mlx_set_font(t_xvar *xvar, t_win_list *win, char *name)$/;"	f
+mlx_start	src/mlx_config.c	/^void	mlx_start(t_game *game)$/;"	f
 mlx_string_put	lib/mlx/mlx_string_put.c	/^int		mlx_string_put(t_xvar *xvar,t_win_list *win,$/;"	f
 mlx_xpm_file_to_image	lib/mlx/mlx_lib_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *filename,$/;"	f
 mlx_xpm_file_to_image	lib/mlx/mlx_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)$/;"	f
@@ -329,6 +336,7 @@ mouse_param	lib/mlx/mlx_int.h	/^	void				*mouse_param;$/;"	m	struct:s_win_list
 mouse_win1	lib/mlx/test/main.c	/^int	mouse_win1(int button,int x,int y, void *p)$/;"	f
 mouse_win2	lib/mlx/test/main.c	/^int	mouse_win2(int button,int x,int y, void *p)$/;"	f
 mouse_win3	lib/mlx/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"	f
+move	src/movements.c	/^static void	move(int x, int y, t_game *game)$/;"	f	file:
 moves	include/so_long.h	/^	int			moves;$/;"	m	struct:s_game
 moves	include/so_long.h	/^	int		moves;$/;"	m	struct:s_player
 name	lib/mlx/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name
@@ -339,7 +347,7 @@ param	lib/mlx/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list
 parse_args	lib/mlx/configure	/^parse_args(){$/;"	f
 path_checker	src/flood_fill.c	/^int	path_checker(t_game *game)$/;"	f
 pix	lib/mlx/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img
-player	include/so_long.h	/^	t_player	player;$/;"	m	struct:s_game
+player	include/so_long.h	/^	t_player	player;	$/;"	m	struct:s_game
 player_nr	include/so_long.h	/^	int		player_nr;$/;"	m	struct:s_map
 prev	lib/libft/libft.h	/^	struct s_list	*prev;$/;"	m	struct:s_list	typeref:struct:s_list::s_list
 previous_x	include/so_long.h	/^	int		previous_x;$/;"	m	struct:s_player
@@ -347,6 +355,7 @@ previous_y	include/so_long.h	/^	int		previous_y;$/;"	m	struct:s_player
 private_cmap	lib/mlx/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar
 pshm_format	lib/mlx/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar
 quote	lib/libft/quotes.c	/^char	quote(char *s, int index)$/;"	f
+rock	include/so_long.h	/^	void	*rock;$/;"	m	struct:s_graphics
 root	lib/mlx/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar
 rows	include/so_long.h	/^	int		rows;$/;"	m	struct:s_map
 s_col_name	lib/mlx/mlx_int.h	/^struct	s_col_name$/;"	s
@@ -363,6 +372,7 @@ s_xpm_col	lib/mlx/mlx_int.h	/^typedef	struct	s_xpm_col$/;"	s
 s_xvar	lib/mlx/mlx_int.h	/^typedef struct	s_xvar$/;"	s
 saved_mode	lib/mlx/mlx_ext_randr.c	/^RRMode	saved_mode = 0;$/;"	v
 screen	lib/mlx/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar
+set_mlx_images	src/mlx_config.c	/^static void	set_mlx_images(t_game *game)$/;"	f	file:
 shm	lib/mlx/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img
 shm_att_pb	lib/mlx/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f
 show_help	lib/mlx/configure	/^show_help(){$/;"	f

@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:28:32 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 01:44:04 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 04:56:54 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ typedef enum e_key
 
 typedef struct s_player
 {
-	void	*img;
+	void	*img_l;
+	void	*img_r;
 	int		instant_x;
 	int		instant_y;
 	int		previous_x;
@@ -61,8 +62,10 @@ typedef struct s_graphics
 {
 	void	*mlx;
 	void	*win;
-	void	*img;
-	char	*addr;
+	void	*empty;
+	void	*rock;
+	void	*gold;
+	void	*exit;
 	int		width;
 	int		height;
 	int		bpp;
@@ -85,7 +88,7 @@ typedef struct s_map
 typedef struct s_game
 {
 	t_graphics	graphics;
-	t_player	player;
+	t_player	player;	
 	int			moves;
 	int			winnign;
 	t_map		map;
@@ -97,5 +100,9 @@ int		check_map(char *file, t_game *game);
 int		map_filler_extra(char **line, int fd);
 int		check_map_elements_extra(t_game *game, int i, int j);
 void	map_duplicator_extra(t_game *game, char **map, int i, int j);
+void	mlx_start(t_game *game);
+int		mlx_close(t_game *game);
+void	map_render(t_game *game);
+int		key_hook(int keycode, t_game *game);
 
 #endif

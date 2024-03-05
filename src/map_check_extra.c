@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 01:31:54 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 01:35:28 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 02:17:58 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_map_elements_extra(t_game *game, int i, int j)
 	&& game->map.map[i][j] != 'E')
 	{
 		free_array_of_strings(game->map.map);
-		return (error_msg("Error: Map has invalid elements\n", 0));
+		return (error_msg("Error\n Map has invalid elements\n", 0));
 	}
 	if (game->map.map[i][j] == 'P')
 		game->map.player_nr++;

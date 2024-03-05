@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 03:45:00 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 01:46:37 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 02:18:20 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char	**map_duplicator(t_game *game, char **map)
 	if (!map)
 	{
 		free_array_of_strings(map);
-		error_msg("Error: Memory allocation failed\n", 0);
+		error_msg("Error\n Memory allocation failed\n", 0);
 		return (NULL);
 	}
 	map[game->map.rows] = NULL;
@@ -80,7 +80,7 @@ static char	**map_duplicator(t_game *game, char **map)
 		if (!map[i])
 		{
 			free_array_of_strings(map);
-			error_msg("Error: Memory allocation failed\n", 0);
+			error_msg("Error\n Memory allocation failed\n", 0);
 			return (NULL);
 		}
 		j = 0;

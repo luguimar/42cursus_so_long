@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 00:18:37 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 01:31:01 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 04:28:05 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,12 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		return (error_msg("Error: Invalid number of arguments", 0));
+		return (error_msg("Error\n Invalid number of arguments", 0));
 	if (!check_extension(argv[1], ".ber"))
-		return (error_msg("Error: Invalid file extension\n", 0));
+		return (error_msg("Error\n Invalid file extension\n", 0));
 	if (!check_map(argv[1], &game))
-		return (error_msg("Error: Invalid map\n", 0));
-	free_array_of_strings(game.map.map);
+		return (error_msg("Error\n Invalid map\n", 0));
+	game.player.moves = 0;
+	mlx_start(&game);
 	return (0);
 }

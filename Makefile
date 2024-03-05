@@ -6,13 +6,13 @@
 #    By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 22:33:22 by luguimar          #+#    #+#              #
-#    Updated: 2024/03/05 01:44:30 by luguimar         ###   ########.fr        #
+#    Updated: 2024/03/05 05:15:06 by luguimar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = src/main.c src/map_ckeck.c src/flood_fill.c src/map_check_extra.c src/flood_fill_extra.c
+SRC = src/main.c src/map_ckeck.c src/flood_fill.c src/map_check_extra.c src/flood_fill_extra.c src/mlx_config.c src/movements.c
 
 OBJS = ${SRC:.c=.o}
 
