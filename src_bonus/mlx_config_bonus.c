@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 02:07:31 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/06 00:00:19 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/06 00:13:03 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,15 @@ int	mlx_close(t_game *game)
 	mlx_destroy_image(game->graphics.mlx, game->player.img_r);
 	mlx_destroy_image(game->graphics.mlx, game->graphics.gold);
 	mlx_destroy_image(game->graphics.mlx, game->graphics.exit);
+	mlx_destroy_image(game->graphics.mlx, game->graphics.mouth_shut_l);
+	mlx_destroy_image(game->graphics.mlx, game->graphics.mouth_shut_r);
+	mlx_destroy_image(game->graphics.mlx, game->graphics.mouth_open_l);
+	mlx_destroy_image(game->graphics.mlx, game->graphics.mouth_open_r);
 	mlx_destroy_window(game->graphics.mlx, game->graphics.win);
 	mlx_destroy_display(game->graphics.mlx);
 	free(game->graphics.mlx);
 	free_array_of_strings(game->map.map);
+	free(game->graphics.enemies);
 	exit(0);
 	return (0);
 }
