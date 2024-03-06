@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:28:32 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 23:18:42 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/06 00:01:47 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ typedef struct s_enemy
 	int			next_x;
 	int			next_y;
 	int			direction;
-	int			path;
 	int			mouth;
-	int			flag;
 }	t_enemy;
 
 typedef struct s_graphics
@@ -113,5 +111,6 @@ void	map_render_enemy(t_game *game, int i, int j, int *enemy_nr);
 int		check_map_aux(t_game *game);
 void	map_rebuild(t_game *game);
 void	map_render_extra1(t_game *game, int i, int j);
+void	movement_announcer(t_game *game);
 
 #endif

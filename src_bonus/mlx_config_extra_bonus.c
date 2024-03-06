@@ -6,11 +6,23 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 10:06:32 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 23:26:14 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/05 23:59:48 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long_bonus.h"
+
+void	movement_announcer(t_game *game)
+{
+	char	*moves;
+
+	moves = ft_itoa(game->player.moves);
+	mlx_string_put(game->graphics.mlx, game->graphics.win, 10, \
+		(game->map.rows * SIZE) + 18, 0x00FFFFFF, "Moves: ");
+	mlx_string_put(game->graphics.mlx, game->graphics.win, 60, \
+		(game->map.rows * SIZE) + 18, 0x00FFFFFF, moves);
+	free(moves);
+}
 
 void	map_render_extra1(t_game *game, int i, int j)
 {

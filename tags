@@ -185,7 +185,6 @@ expose_hook	lib/mlx/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_li
 expose_param	lib/mlx/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list
 expose_win1	lib/mlx/test/main.c	/^int	expose_win1(void *p)$/;"	f
 expose_win2	lib/mlx/test/main.c	/^int	expose_win2(void *p)$/;"	f
-flag	include/so_long_bonus.h	/^	int			flag;$/;"	m	struct:s_enemy
 flood_fill	src/flood_fill.c	/^static int	flood_fill(t_game *game, int x, int y, char **map)$/;"	f	file:
 flood_fill	src_bonus/flood_fill_bonus.c	/^static int	flood_fill(t_game *game, int x, int y, char **map)$/;"	f	file:
 format	lib/mlx/mlx_int.h	/^	int				format;$/;"	m	struct:s_img
@@ -416,6 +415,7 @@ mouth_shut_r	include/so_long_bonus.h	/^	void	*mouth_shut_r;$/;"	m	struct:s_graph
 move	src/movements.c	/^static void	move(int x, int y, t_game *game)$/;"	f	file:
 move	src_bonus/movements_bonus.c	/^static void	move(int x, int y, t_game *game)$/;"	f	file:
 move_extra	src_bonus/movements_bonus.c	/^static void	move_extra(int x, int y, t_game *game)$/;"	f	file:
+movement_announcer	src_bonus/mlx_config_extra_bonus.c	/^void	movement_announcer(t_game *game)$/;"	f
 moves	include/so_long.h	/^	int			moves;$/;"	m	struct:s_game
 moves	include/so_long.h	/^	int		moves;$/;"	m	struct:s_player
 moves	include/so_long_bonus.h	/^	int			moves;$/;"	m	struct:s_game
@@ -428,7 +428,6 @@ next_x	include/so_long_bonus.h	/^	int			next_x;$/;"	m	struct:s_enemy
 next_y	include/so_long_bonus.h	/^	int			next_y;$/;"	m	struct:s_enemy
 param	lib/mlx/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list
 parse_args	lib/mlx/configure	/^parse_args(){$/;"	f
-path	include/so_long_bonus.h	/^	int			path;$/;"	m	struct:s_enemy
 path_checker	src/flood_fill.c	/^int	path_checker(t_game *game)$/;"	f
 path_checker	src_bonus/flood_fill_bonus.c	/^int	path_checker(t_game *game)$/;"	f
 pix	lib/mlx/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img

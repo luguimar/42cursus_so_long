@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 02:07:31 by luguimar          #+#    #+#             */
-/*   Updated: 2024/03/05 23:22:48 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/03/06 00:00:19 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	map_render(t_game *game)
 				map_render_extra(game, i, j);
 		}
 	}
+	movement_announcer(game);
 	return (1);
 }
 
@@ -117,7 +118,7 @@ void	mlx_start(t_game *game)
 		exit(1);
 	}
 	game->graphics.win = mlx_new_window(game->graphics.mlx, game->map.cols \
-	* SIZE, game->map.rows * SIZE, "so_long");
+	* SIZE, (game->map.rows * SIZE) + 25, "so_long");
 	if (!game->graphics.win)
 	{
 		mlx_destroy_display(game->graphics.mlx);
